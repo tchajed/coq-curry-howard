@@ -1,7 +1,7 @@
 COQDOCFLAGS:= \
-  --html \
-  --no-lib-name --parse-comments \
-  --with-header extra/header.html --with-footer extra/footer.html
+	--html \
+	--no-lib-name --parse-comments \
+	--with-header extra/header.html --with-footer extra/footer.html
 
 default: doc/CurryHoward.html
 
