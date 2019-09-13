@@ -1,5 +1,5 @@
 *.vo
 *.glob
 .*.aux
-*.html
-/coqdoc.css
+/doc/*.html
+/doc/coqdoc.css
