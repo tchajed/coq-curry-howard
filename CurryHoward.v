@@ -1,7 +1,11 @@
-(** * How does Coq work? *)
+(** * What is a Coq proof? *)
 
-(** In this file, we'll explain Coq from the bottom-up, explaining what the
-    primitives are and how many other aspects are derived from these primitives.
+(** In this file, we'll explain what a Coq proof is from the bottom-up,
+    explaining what the primitives are and how many other aspects are derived
+    from these primitives.
+
+    If you've heard of the Curry-Howard isomorphism, that turns out to explain what a
+    proof in Coq is. If you haven't heard of it, don't worry about it.
 
     To really emphasize this point, we use a [_CoqProject] file to disable loading
     Init from the Coq standard library. We'll define everything as we go.
@@ -10,6 +14,8 @@
 (* ignore this; some things are really broken if we don't load some plugins *)
 Require Coq.Init.Prelude.
 Require Import Coq.Init.Notations.
+
+(** ** Part 1: dependent types *)
 
 (** First, types are the natural starting point to explain what Coq does have,
     since we'll need them to do anything else. Without Init, there are basically
@@ -95,10 +101,14 @@ Notation "A -> B" := (forall (_:A), B) : type_scope.
 Definition id' : forall {T:Type}, T -> T :=
   fun {T:Type} (x:T) => x.
 
+(** ** Part 2: Theorems *)
+
 (** Now we're ready to talk about theorems in Coq.
 
-The big reveal is this: A Coq theorem statement is a type, and its proof is a
-term of that type. (This is exactly the Curry-Howard correspondence.)
+The big reveal is this: **A Coq theorem statement is a type, and its proof is a
+term of that type.**
+
+(Note that this is exactly the Curry-Howard correspondence.)
 
 That is, for any theorem statement [P:Prop], we'll say [pf:P] is a proof of [P]
 and that [P] is provable if [pf:P] exists.
@@ -170,6 +180,8 @@ loop = loop
 >>
 
 We'll see how to produce a term of type [P -> False] in a bit. *)
+
+(** ** Part 3: (dependent) pattern matching *)
 
 (** The most interesting way to prove theorems in Coq is pattern matching
 (closely tied with recursion for reasoning about recursive datatypes and
