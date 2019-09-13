@@ -240,13 +240,8 @@ match H in (eq _ _ y0) return (eq T y0 x) with
 end
 >>
 
-This is a dependent pattern match over the _proof_ [H]. I can't really do
-justice to explaining how this works, so I'll refer you to the excellent
-resource Certified Programming with Dependent Types (CPDT), by Prof. Adam
-Chlipala: http://adam.chlipala.net/cpdt/html/MoreDep.html. Especially look at
-"The One Rule of Dependent Pattern Matching in Coq".
-
-Let me try any way: A dependent pattern match in general looks like
+This is a dependent pattern match over the _proof_ [H]. A dependent pattern
+match in general looks like
 
 <<
  match E as y in (T x1 ... xn) return U with
@@ -266,6 +261,11 @@ type [eq T x x]).
 
 This is the only way Coq provides to extract information from the constructors
 of an inductive type, but it's powerful enough to do almost anything you'd like.
+
+My explanation is a bit informal, so if you really want to understand this, I'll
+refer you to the excellent resource Certified Programming with Dependent Types
+(CPDT), by Prof. Adam Chlipala: http://adam.chlipala.net/cpdt/html/MoreDep.html.
+Especially look at "The One Rule of Dependent Pattern Matching in Coq".
  *)
 
 (** Here's a particularly interesting example of dependent pattern matching that
