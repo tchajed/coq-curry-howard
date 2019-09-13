@@ -5,11 +5,12 @@
     from these primitives.
 
     If you've heard of the Curry-Howard isomorphism, that turns out to explain what a
-    proof in Coq is. If you haven't heard of it, don't worry about it.
+    proof in Coq is. If you haven't heard of it, don't worry about it. *)
 
-    To really emphasize this point, we use a [_CoqProject] file to disable loading
-    Init from the Coq standard library. We'll define everything as we go.
- *)
+(** The Coq source for this file is at #<a
+href="https://github.com/tchajed/coq-curry-howard">https://github.com/tchajed/coq-curry-howard</a>#.
+It compiles without the default Coq [Init] library; we'll define everything as
+we go. *)
 
 (* ignore this; some things are really broken if we don't load some plugins *)
 Require Coq.Init.Prelude.
