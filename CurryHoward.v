@@ -15,6 +15,7 @@ we go. *)
 (* ignore this; some things are really broken if we don't load some plugins *)
 Require Coq.Init.Prelude.
 Require Import Coq.Init.Notations.
+Require Import Coq.Init.Ltac.
 
 (** ** Part 1: dependent types *)
 
